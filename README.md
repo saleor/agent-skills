@@ -32,4 +32,4 @@ For **framework-specific** patterns (caching strategies, component architecture,
 
 ## License
 
-BSD 3-Clause
+BSD-3-Clause AND CC-BY-4.0
