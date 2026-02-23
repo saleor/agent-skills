@@ -32,4 +32,4 @@ For **framework-specific** patterns (caching strategies, component architecture,
 
 ## License
 
-MIT
+BSD 3-Clause
