@@ -7,6 +7,7 @@ Universal [agent skills](https://agentskills.io) for building e-commerce applica
 | Skill | Description |
 | --- | --- |
 | [`saleor-storefront`](skills/saleor-storefront/) | Saleor API patterns for building storefronts — data model, permissions, checkout, channels, variants |
+| [`saleor-configurator`](skills/configurator/) | Patterns for managing Saleor store configuration as code — config.yml schema, deploy/diff/introspect CLI, entity identity, deployment pipeline |
 
 ## Installation
 
