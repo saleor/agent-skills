@@ -5,10 +5,8 @@ Universal agent skill for building Saleor apps. Framework-agnostic protocol docs
 ## Installation
 
 ```bash
-npx skills add saleor/agent-skills#saleor-app
+npx skills add saleor/agent-skills --skill saleor-app
 ```
-
-Or manually copy the `saleor-app/` directory to `.claude/skills/`.
 
 ## What's Included
 

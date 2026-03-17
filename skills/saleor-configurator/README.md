@@ -20,6 +20,7 @@ npx skills add saleor/agent-skills --skill saleor-configurator
 ## Who This Is For
 
 Developers and teams who:
+
 - Manage Saleor store configuration as code (GitOps)
 - Need reproducible, version-controlled store deployments
 - Want to sync configuration across staging and production environments
@@ -27,17 +28,12 @@ Developers and teams who:
 
 ## What's Included
 
-| File | Purpose |
-| ---- | ------- |
-| `SKILL.md` | Agent entry point — overview and quick reference |
-| `AGENTS.md` | Full compiled guide with all rules expanded |
-| `rules/config-schema.md` | YAML structure and entity examples |
-| `rules/identity-strategies.md` | Slug vs name identification rules |
-| `rules/cli-commands.md` | All CLI commands, flags, and env vars |
-| `rules/deploy-pipeline.md` | Stage order, dependencies, failure handling |
-| `rules/diff-behavior.md` | How diff detects changes |
-
-## Related Skills
-
-- [`saleor-storefront`](../storefront/) — Saleor API patterns for building storefronts
-- [`saleor-app`](../app/) — Building apps that extend Saleor via webhooks
+| File                           | Purpose                                          |
+| ------------------------------ | ------------------------------------------------ |
+| `SKILL.md`                     | Agent entry point — overview and quick reference |
+| `AGENTS.md`                    | Full compiled guide with all rules expanded      |
+| `rules/config-schema.md`       | YAML structure and entity examples               |
+| `rules/identity-strategies.md` | Slug vs name identification rules                |
+| `rules/cli-commands.md`        | All CLI commands, flags, and env vars            |
+| `rules/deploy-pipeline.md`     | Stage order, dependencies, failure handling      |
+| `rules/diff-behavior.md`       | How diff detects changes                         |

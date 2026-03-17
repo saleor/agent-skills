@@ -46,10 +46,9 @@ categories:
 
 ## Full Schema Reference
 
-The authoritative schema is defined as Zod in the Configurator source:
-
-- **Schema source**: [`src/modules/config/schema/schema.ts`](https://github.com/saleor/saleor-configurator/blob/main/src/modules/config/schema/schema.ts)
-- **Entity reference**: [`docs/ENTITY_REFERENCE.md`](https://github.com/saleor/saleor-configurator/blob/main/docs/ENTITY_REFERENCE.md)
+- **Schema docs**: [SCHEMA.md](https://github.com/saleor/configurator/blob/main/SCHEMA.md)
+- **JSON schema**: [schema.json](https://github.com/saleor/configurator/blob/main/schema.json)
+- **Full example**: [example.yml](https://github.com/saleor/configurator/blob/main/example.yml)
 
 ## Anti-Patterns
 
