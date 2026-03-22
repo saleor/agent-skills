@@ -24,16 +24,18 @@ Framework-agnostic protocol documentation with Next.js examples using `@saleor/a
 - Building Dashboard UI inside the iframe
 - Making GraphQL calls with app tokens
 - Debugging webhook failures, auth errors, or permission issues
+- Deciding who can view the app and what they should see (user vs app scope)
 
 ## Rule Categories by Priority
 
-| Priority | Category        | Impact   | Prefix       |
-| -------- | --------------- | -------- | ------------ |
-| 1        | Protocol        | CRITICAL | `protocol-`  |
-| 2        | Webhooks        | HIGH     | `webhook-`   |
-| 3        | Data & Settings | HIGH     | `data-`      |
-| 4        | Dashboard UI    | MEDIUM   | `dashboard-` |
-| 5        | Development     | MEDIUM   | `dev-`       |
+| Priority | Category        | Impact   | Prefix          |
+| -------- | --------------- | -------- | --------------- |
+| 1        | Protocol        | CRITICAL | `protocol-`     |
+| 2        | Permissions     | CRITICAL | `permissions-`  |
+| 3        | Webhooks        | HIGH     | `webhook-`      |
+| 4        | Data & Settings | HIGH     | `data-`         |
+| 5        | Dashboard UI    | MEDIUM   | `dashboard-`    |
+| 6        | Development     | MEDIUM   | `dev-`          |
 
 ## Quick Reference
 
@@ -42,21 +44,25 @@ Framework-agnostic protocol documentation with Next.js examples using `@saleor/a
 - `protocol-manifest` — App manifest, required endpoints, permissions, extensions
 - `protocol-auth` — Registration handshake, APL, token scopes, JWT/signature verification
 
-### 2. Webhooks (HIGH)
+### 2. Permissions (CRITICAL)
+
+- `permissions-access-scopes` — User scope vs app scope, client-side permission checks, JWT middleware patterns
+
+### 3. Webhooks (HIGH)
 
 - `webhook-async` — Async event handling, payload typing, retry policy, signature verification
 - `webhook-sync` — Sync event handling, response schemas, performance constraints
 - `webhook-external` — Receiving webhooks from external services, multi-tenant routing
 
-### 3. Data & Settings (HIGH)
+### 4. Data & Settings (HIGH)
 
 - `data-graphql` — GraphQL from apps: client setup, auth headers, codegen, app vs user tokens
 - `data-settings` — MetadataManager, EncryptedMetadataManager, domain-scoped persistence
 
-### 4. Dashboard UI (MEDIUM)
+### 5. Dashboard UI (MEDIUM)
 
 - `dashboard-appbridge` — AppBridge iframe protocol, actions, events, theme/locale sync
 
-### 5. Development (MEDIUM)
+### 6. Development (MEDIUM)
 
 - `dev-debug` — Common errors, webhook dry runs, tunnel setup, debugging checklist
