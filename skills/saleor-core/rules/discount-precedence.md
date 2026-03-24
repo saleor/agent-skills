@@ -215,14 +215,6 @@ OrderLineDiscount(type=DiscountType.PROMOTION, unique_type=DiscountType.PROMOTIO
 
 ---
 
-## Known Dashboard Issue
-
-`OrderLine.unit_discount_value` is a denormalized field used for **both** automatic (promotion/voucher) and manual discounts. It does not distinguish between them.
-
-The authoritative source of truth is `OrderLineDiscount.type` (`MANUAL`, `VOUCHER`, `PROMOTION`), but only `order.discounts` (order-level `OrderDiscount` objects) is available in the Dashboard's GraphQL fragments — not the line-level `OrderLineDiscount` objects.
-
-**The bug**: For checkout-created orders, `unit_discount_value` is always populated (set during checkout completion). The Dashboard code treats `!!unitDiscountValue` as "has manual discount," which is incorrect — it means "has *some* discount recorded at the line level." This causes the automatic discount info message to not appear on checkout-created orders.
-
 ## Anti-patterns
 
 ❌ **Don't assume `unit_discount_value > 0` means manual discount** — It means any discount exists  
