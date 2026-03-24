@@ -34,4 +34,4 @@ For **framework-specific** patterns (caching strategies, component architecture,
 
 ## License
 
-MIT
+BSD-3-Clause AND CC-BY-4.0
