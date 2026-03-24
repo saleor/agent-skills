@@ -6,6 +6,7 @@ Universal [agent skills](https://agentskills.io) for building e-commerce applica
 
 | Skill                                            | Description                                                                                          |
 | ------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
+| [`saleor-core`](skills/saleor-core/)             | Saleor backend internals — discount precedence, stacking rules, denormalized fields, Dashboard bugs  |
 | [`saleor-storefront`](skills/saleor-storefront/) | Saleor API patterns for building storefronts — data model, permissions, checkout, channels, variants |
 | [`saleor-app`](skills/saleor-app/)               | Patterns for building Saleor apps — protocol manifest, dashboard appbridge, webhooks, permissions    |
 
@@ -17,7 +18,7 @@ Install a specific skill with `npx skills`:
 npx skills add saleor/agent-skills --skill <skill-name>
 ```
 
-Where `<skill-name>` is one of: `saleor-storefront`, `saleor-app`. See each skill's README for its install command.
+Where `<skill-name>` is one of: `saleor-core`, `saleor-storefront`, `saleor-app`. See each skill's README for its install command.
 
 ## What Are Agent Skills?
 
