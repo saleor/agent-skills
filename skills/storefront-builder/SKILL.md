@@ -43,6 +43,16 @@ Example: /storefront-builder 1
 
 Connect an existing project to Saleor's GraphQL API with correct client separation and codegen.
 
+### 0. Saleor instance check
+
+Ask the user:
+
+> "Do you have a Saleor instance ready?
+> - **No** — create one at https://cloud.saleor.io/ (free tier available), then come back with the API URL.
+> - **Yes** — paste your storefront/API URL and we'll get started."
+
+Wait for the user's response before continuing. If they don't have an instance yet, stop here and let them set one up. If they provide a URL, note it for use in step 6.
+
 ### 1. Inspect the project
 
 Read `package.json` and any framework config files present (`nuxt.config.ts`, `next.config.*`, `svelte.config.js`, `remix.config.js`, `vite.config.*`, etc.) to understand:
