@@ -4,15 +4,20 @@ Universal [agent skills](https://agentskills.io) for building e-commerce applica
 
 ## Available Skills
 
-| Skill | Description |
-| --- | --- |
+| Skill                                            | Description                                                                                          |
+| ------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
+| [`saleor-core`](skills/saleor-core/)             | Saleor backend internals — discount precedence, stacking rules, denormalized fields, Dashboard bugs  |
 | [`saleor-storefront`](skills/saleor-storefront/) | Saleor API patterns for building storefronts — data model, permissions, checkout, channels, variants |
 
 ## Installation
 
+Install a specific skill with `npx skills`:
+
 ```shell
-npx skills add saleor/agent-skills --skill saleor-storefront
+npx skills add saleor/agent-skills --skill <skill-name>
 ```
+
+Where `<skill-name>` is one of: `saleor-core`, `saleor-storefront`. See each skill's README for its install command.
 
 This installs the skill into `.agents/skills/` in your project, where AI agents can auto-discover it.
 
@@ -21,6 +26,7 @@ This installs the skill into `.agents/skills/` in your project, where AI agents 
 Agent skills are structured instruction sets that help AI coding assistants (like Cursor, Claude, Copilot) understand domain-specific patterns. They follow the [Agent Skills Specification](https://agentskills.io).
 
 Each skill contains:
+
 - **SKILL.md** — Overview and quick reference (agents read this first)
 - **AGENTS.md** — Full compiled document with all rules expanded
 - **rules/** — Individual rule files with detailed examples
