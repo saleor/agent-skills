@@ -4,10 +4,12 @@ Universal [agent skills](https://agentskills.io) for building e-commerce applica
 
 ## Available Skills
 
-| Skill                                            | Description                                                                                          |
-| ------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
-| [`saleor-core`](skills/saleor-core/)             | Saleor backend internals — discount precedence, stacking rules, denormalized fields, Dashboard bugs  |
-| [`saleor-storefront`](skills/saleor-storefront/) | Saleor API patterns for building storefronts — data model, permissions, checkout, channels, variants |
+| Skill                                                | Description                                                                                                                                                                                                               |
+| ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`saleor-app`](skills/saleor-app/)                   | Patterns for building Saleor apps — protocol manifest, dashboard appbridge, webhooks, permissions                                                                                                                         |
+| [`saleor-configurator`](skills/saleor-configurator/) | Patterns for managing Saleor store configuration as code using [Saleor Configurator](https://github.com/saleor/saleor-configurator) — config.yml schema, deploy/diff/introspect CLI, entity identity, deployment pipeline |
+| [`saleor-core`](skills/saleor-core/)                 | Saleor backend internals — discount precedence, stacking rules, denormalized fields, Dashboard bugs                                                                                                                      |
+| [`saleor-storefront`](skills/saleor-storefront/)     | Saleor API patterns for building storefronts — data model, permissions, checkout, channels, variants                                                                                                                      |
 
 ## Installation
 
@@ -17,7 +19,7 @@ Install a specific skill with `npx skills`:
 npx skills add saleor/agent-skills --skill <skill-name>
 ```
 
-Where `<skill-name>` is one of: `saleor-core`, `saleor-storefront`. See each skill's README for its install command.
+Where `<skill-name>` is one of: `saleor-app`, `saleor-configurator`, `saleor-core`, `saleor-storefront`. See each skill's README for its install command.
 
 This installs the skill into `.agents/skills/` in your project, where AI agents can auto-discover it.
 
@@ -31,12 +33,6 @@ Each skill contains:
 - **AGENTS.md** — Full compiled document with all rules expanded
 - **rules/** — Individual rule files with detailed examples
 - **references/** — Supporting deep-dive documentation
-
-## For Saleor Storefront Developers
-
-These skills are **framework-agnostic** — they cover Saleor API patterns that apply whether you're using Next.js, Remix, Nuxt, or a custom setup.
-
-For **framework-specific** patterns (caching strategies, component architecture, file conventions), see project-level skills like [`saleor-paper-storefront`](https://github.com/saleor/paper) in specific storefront implementations.
 
 ## License
 
