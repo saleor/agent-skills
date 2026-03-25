@@ -5,19 +5,20 @@
 ## Top-Level Structure
 
 ```yaml
-shop:          # Global store settings (singleton)
-channels:      # Sales channels
-taxClasses:    # Tax classifications
-productTypes:  # Product templates
-pageTypes:     # CMS page templates
-attributes:    # Reusable attribute definitions
-categories:    # Product category hierarchy
-collections:   # Product groupings
-warehouses:    # Fulfillment locations
-shippingZones: # Geographic shipping rules
-products:      # Product catalog
-menus:         # Navigation menus
-models:        # Custom data models
+shop:               # Global store settings (singleton)
+channels:           # Sales channels
+taxClasses:         # Tax classifications
+productTypes:       # Product templates
+pageTypes:          # CMS page templates
+productAttributes:  # Attributes for products and variants
+contentAttributes:  # Attributes for CMS pages
+categories:         # Product category hierarchy
+collections:        # Product groupings
+warehouses:         # Fulfillment locations
+shippingZones:      # Geographic shipping rules
+products:           # Product catalog
+menus:              # Navigation menus
+models:             # Custom data models
 ```
 
 ## Key Rules
@@ -53,3 +54,11 @@ categories:
 ## Anti-Patterns
 
 ❌ Don't mix up cross-reference identifier types — see `identity-strategies` for which entity uses slug vs name
+
+❌ Don't use `attributes:` — it was removed. Use `productAttributes:` for product/variant attributes and `contentAttributes:` for CMS page attributes
+
+❌ Don't use `type:` for attribute input type — the correct field is `inputType:` (e.g. `inputType: DROPDOWN`)
+
+❌ Don't reference attributes in `productTypes` as plain strings — use `- attribute: "Name"` object syntax
+
+❌ Don't omit `address` on warehouses — it is required (needs at least `streetAddress1`, `city`, `postalCode`, `country`)

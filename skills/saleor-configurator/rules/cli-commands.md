@@ -1,6 +1,6 @@
 # CLI Commands
 
-Saleor Configurator is invoked as `saleor-configurator` (or `configurator` in projects with a local script alias).
+Saleor Configurator is invoked via `pnpm dlx @saleor/configurator`.
 
 ## Authentication
 
@@ -8,12 +8,12 @@ Credentials are required for all commands that talk to Saleor. Provide them via:
 
 ```bash
 # Flags (explicit)
-configurator deploy --url=https://your-store.saleor.cloud/graphql/ --token=YOUR_TOKEN
+pnpm dlx @saleor/configurator deploy --url=https://your-store.saleor.cloud/graphql/ --token=YOUR_TOKEN
 
 # Environment variables (recommended for CI)
 export SALEOR_URL=https://your-store.saleor.cloud/graphql/
 export SALEOR_TOKEN=YOUR_TOKEN
-configurator deploy
+pnpm dlx @saleor/configurator deploy
 ```
 
 Store credentials in `.env.local` (git-ignored) for local development — never commit tokens.
@@ -25,8 +25,8 @@ Store credentials in `.env.local` (git-ignored) for local development — never 
 Downloads the current remote store state and writes it to `config.yml`.
 
 ```bash
-configurator introspect
-configurator introspect --url=$SALEOR_URL --token=$SALEOR_TOKEN
+pnpm dlx @saleor/configurator introspect
+pnpm dlx @saleor/configurator introspect --url=$SALEOR_URL --token=$SALEOR_TOKEN
 ```
 
 Use this to:
@@ -39,8 +39,8 @@ Use this to:
 Applies `config.yml` to the remote store. Creates, updates, or deletes entities to match local config.
 
 ```bash
-configurator deploy
-configurator deploy --url=$SALEOR_URL --token=$SALEOR_TOKEN
+pnpm dlx @saleor/configurator deploy
+pnpm dlx @saleor/configurator deploy --url=$SALEOR_URL --token=$SALEOR_TOKEN
 ```
 
 **Output**:
@@ -53,8 +53,8 @@ configurator deploy --url=$SALEOR_URL --token=$SALEOR_TOKEN
 Compares local `config.yml` with remote store state. Shows what would change on next deploy — no changes applied.
 
 ```bash
-configurator diff
-configurator diff --url=$SALEOR_URL --token=$SALEOR_TOKEN
+pnpm dlx @saleor/configurator diff
+pnpm dlx @saleor/configurator diff --url=$SALEOR_URL --token=$SALEOR_TOKEN
 ```
 
 Use this to:
@@ -67,7 +67,7 @@ Use this to:
 Interactive first-time setup wizard. Guides through initial configuration.
 
 ```bash
-configurator start
+pnpm dlx @saleor/configurator start
 ```
 
 ## Non-Interactive Mode
@@ -80,10 +80,10 @@ Deploy only specific entity types using `--include` or `--exclude`:
 
 ```bash
 # Deploy only product types and categories
-configurator deploy --include=productTypes,categories
+pnpm dlx @saleor/configurator deploy --include=productTypes,categories
 
 # Deploy everything except products (faster for config-only changes)
-configurator deploy --exclude=products
+pnpm dlx @saleor/configurator deploy --exclude=products
 ```
 
 **Warning**: If a dependency is excluded but needed, deployment will fail. For example, excluding `productTypes` when deploying `products` will fail if any product type doesn't exist yet.
@@ -114,18 +114,18 @@ configurator deploy --exclude=products
 
 ```bash
 # 1. Bootstrap from existing store
-configurator introspect
+pnpm dlx @saleor/configurator introspect
 
 # 2. Edit config.yml
 
 # 3. Preview changes
-configurator diff
+pnpm dlx @saleor/configurator diff
 
 # 4. Apply changes
-configurator deploy
+pnpm dlx @saleor/configurator deploy
 
 # 5. Verify idempotency (no changes expected)
-configurator deploy   # Should report 0 changes
+pnpm dlx @saleor/configurator deploy   # Should report 0 changes
 ```
 
 ## CI/CD Integration
@@ -136,7 +136,7 @@ configurator deploy   # Should report 0 changes
   env:
     SALEOR_URL: ${{ secrets.SALEOR_URL }}
     SALEOR_TOKEN: ${{ secrets.SALEOR_TOKEN }}
-  run: configurator deploy
+  run: pnpm dlx @saleor/configurator deploy
 ```
 
 Non-interactive mode is automatic — no flag needed.

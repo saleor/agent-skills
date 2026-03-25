@@ -23,19 +23,20 @@ Saleor Configurator is a "commerce as code" CLI that lets you define your entire
 ### Top-Level Structure
 
 ```yaml
-shop:          # Global store settings (singleton)
-channels:      # Sales channels
-taxClasses:    # Tax classifications
-productTypes:  # Product templates
-pageTypes:     # CMS page templates
-attributes:    # Reusable attribute definitions
-categories:    # Product category hierarchy
-collections:   # Product groupings
-warehouses:    # Fulfillment locations
-shippingZones: # Geographic shipping rules
-products:      # Product catalog
-menus:         # Navigation menus
-models:        # Custom data models
+shop:               # Global store settings (singleton)
+channels:           # Sales channels
+taxClasses:         # Tax classifications
+productTypes:       # Product templates
+pageTypes:          # CMS page templates
+productAttributes:  # Attributes for products and variants
+contentAttributes:  # Attributes for CMS pages
+categories:         # Product category hierarchy
+collections:        # Product groupings
+warehouses:         # Fulfillment locations
+shippingZones:      # Geographic shipping rules
+products:           # Product catalog
+menus:              # Navigation menus
+models:             # Custom data models
 ```
 
 ### Key Rules
@@ -144,12 +145,12 @@ warehouses:
 
 ```bash
 # Via flags
-configurator deploy --url=https://your-store.saleor.cloud/graphql/ --token=YOUR_TOKEN
+pnpm dlx @saleor/configurator deploy --url=https://your-store.saleor.cloud/graphql/ --token=YOUR_TOKEN
 
 # Via environment variables (recommended for CI)
 export SALEOR_URL=https://your-store.saleor.cloud/graphql/
 export SALEOR_TOKEN=YOUR_TOKEN
-configurator deploy
+pnpm dlx @saleor/configurator deploy
 ```
 
 ### Core Commands
@@ -157,7 +158,7 @@ configurator deploy
 **`introspect`** — Downloads remote state → writes `config.yml`
 
 ```bash
-configurator introspect
+pnpm dlx @saleor/configurator introspect
 ```
 
 Use to bootstrap or re-sync after Dashboard edits. Overwrites local `config.yml`.
@@ -165,14 +166,14 @@ Use to bootstrap or re-sync after Dashboard edits. Overwrites local `config.yml`
 **`deploy`** — Applies `config.yml` to the remote store
 
 ```bash
-configurator deploy
-configurator deploy --report-path=reports/deploy.json
+pnpm dlx @saleor/configurator deploy
+pnpm dlx @saleor/configurator deploy --report-path=reports/deploy.json
 ```
 
 **`diff`** — Previews what would change (read-only)
 
 ```bash
-configurator diff
+pnpm dlx @saleor/configurator diff
 ```
 
 **`start`** — Interactive first-time setup wizard
@@ -184,8 +185,8 @@ In CI/CD and non-TTY environments, confirmations are automatically skipped. No f
 ### Selective Deployment
 
 ```bash
-configurator deploy --include=productTypes,categories
-configurator deploy --exclude=products
+pnpm dlx @saleor/configurator deploy --include=productTypes,categories
+pnpm dlx @saleor/configurator deploy --exclude=products
 ```
 
 ### Useful Flags
@@ -211,11 +212,11 @@ configurator deploy --exclude=products
 ### Recommended Workflow
 
 ```bash
-configurator introspect   # Bootstrap from remote
+pnpm dlx @saleor/configurator introspect   # Bootstrap from remote
 # Edit config.yml
-configurator diff         # Preview changes
-configurator deploy       # Apply changes
-configurator deploy       # Verify idempotency (0 changes)
+pnpm dlx @saleor/configurator diff         # Preview changes
+pnpm dlx @saleor/configurator deploy       # Apply changes
+pnpm dlx @saleor/configurator deploy       # Verify idempotency (0 changes)
 ```
 
 ### CLI Anti-Patterns
