@@ -1,6 +1,6 @@
 # saleor-core
 
-Backend behavior reference for the [Saleor](https://saleor.io) e-commerce platform. Covers internal mechanics derived from reading the core source code — discount precedence, stacking rules, denormalized fields, and known Dashboard gotchas.
+Backend behavior reference for the [Saleor](https://saleor.io) e-commerce platform. Covers internal mechanics derived from reading the core source code — discount precedence, stock availability modes, denormalized fields, and known Dashboard gotchas.
 
 ## Installation
 
@@ -15,6 +15,7 @@ npx skills add saleor/agent-skills --skill saleor-core
 | Rule | Topic |
 |------|-------|
 | `discount-precedence` | Full precedence hierarchy, manual vs voucher vs promotion interactions, denormalized field semantics, known Dashboard bug |
+| `stock-availability-modes` | `Shop.useLegacyShippingZoneStockAvailability` (3.23+), purchasability vs shippability, server queryset dispatch, mode-conditional webhooks, Dashboard UI / copy / severity rules, migration footguns, test fixtures |
 
 ## Structure
 
@@ -23,7 +24,8 @@ saleor-core/
 ├── SKILL.md              # Overview and quick reference (agents read this first)
 ├── README.md             # This file (for humans)
 └── rules/                # Individual rule files
-    └── discount-precedence.md
+    ├── discount-precedence.md
+    └── stock-availability-modes.md
 ```
 
 ## What's NOT Included
