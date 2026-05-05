@@ -26,6 +26,7 @@ Reference these guidelines when:
 - Implementing checkout and payment flows
 - Working with multi-channel and multi-currency setups
 - Debugging "product not purchasable" or permission errors
+- Working with Saleor 3.23+ stock availability modes (`useLegacyShippingZoneStockAvailability`)
 - Investigating Saleor API behavior via source code
 
 ## Rule Categories
@@ -56,7 +57,7 @@ Reference these guidelines when:
 
 ### 4. Channels (MEDIUM)
 
-- `channels-purchasability` — Fulfillment triangle, 7-point purchasability checklist, channel queries
+- `channels-purchasability` — Stock availability modes (legacy vs direct, 3.23+), purchasability vs shippability, fulfillment triangle, mode-aware checklists, channel-scoped queries, stock webhooks
 
 ## How to Use
 
