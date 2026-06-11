@@ -46,7 +46,7 @@ Framework-agnostic protocol documentation with Next.js examples using `@saleor/a
 
 ### 2. Permissions (CRITICAL)
 
-- `permissions-access-scopes` — User scope vs app scope, client-side permission checks, JWT middleware patterns
+- `permissions-access-scopes` — Define per-feature permissions; guard user JWT on every API route; baseline + per-route meta; UI mirrors server
 
 ### 3. Webhooks (HIGH)
 

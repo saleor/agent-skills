@@ -110,7 +110,7 @@ export default createAppRegisterHandler({
 
 ## JWT Verification (Dashboard Requests)
 
-Dashboard users access app UI via iframe. The AppBridge provides a JWT token. Server endpoints verify it.
+Dashboard users access app UI via iframe. The AppBridge provides a JWT token. **Every user-scoped API route must verify it and check `requiredPermissions` for that route** — not only the iframe UI. See `permissions-access-scopes` for the full model (baseline + per-route meta, extension visibility vs server gates).
 
 ### Headers from Dashboard (via AppBridge)
 

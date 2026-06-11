@@ -48,9 +48,11 @@ const { appBridgeState } = useAppBridge();
 // .theme       — "light" | "dark"
 // .locale      — language code
 // .user.email
-// .user.permissions — user's permissions
-// .appPermissions  — app's granted permissions
+// .user.permissions — user's permissions (mirror on client; enforce on server via verifyJWT)
+// .appPermissions  — app's granted permissions (manifest — not a substitute for user JWT checks)
 ```
+
+`user.permissions` drives **UI** (hide panels, `enabled: false` on queries). **API routes** must independently call `verifyJWT` with per-route `requiredPermissions`. Extension manifest `permissions` only control whether Saleor shows the mount — see `permissions-access-scopes`.
 
 ## Actions (App → Dashboard)
 
