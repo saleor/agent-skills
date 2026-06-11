@@ -15,6 +15,7 @@ npx skills add saleor/agent-skills --skill saleor-core
 | Rule | Topic |
 |------|-------|
 | `discount-precedence` | Full precedence hierarchy, manual vs voucher vs promotion interactions, denormalized field semantics, known Dashboard bug |
+| `order-discount-allocation` | Two-pass calculation of order-level discounts, what the API exposes vs reconstructs, gift-line shape gotcha (`ORDER_PROMOTION` on `OrderLine.discounts[]`), guidance for price-explanation tooling |
 | `stock-availability-modes` | `Shop.useLegacyShippingZoneStockAvailability` (3.23+), purchasability vs shippability, server queryset dispatch, mode-conditional webhooks, Dashboard UI / copy / severity rules, migration footguns, test fixtures |
 
 ## Structure
@@ -25,6 +26,7 @@ saleor-core/
 ├── README.md             # This file (for humans)
 └── rules/                # Individual rule files
     ├── discount-precedence.md
+    ├── order-discount-allocation.md
     └── stock-availability-modes.md
 ```
 
