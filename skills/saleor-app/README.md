@@ -16,7 +16,7 @@ npx skills add saleor/agent-skills --skill saleor-app
 |------|-------|
 | `protocol-manifest` | App manifest, endpoints, permissions, extensions |
 | `protocol-auth` | Registration, APL, token scopes, JWT verification |
-| `permissions-access-scopes` | User vs app scope, client-side permission checks, JWT middleware |
+| `permissions-access-scopes` | User vs app scope; define + enforce JWT permissions per route; UI mirrors server |
 | `webhook-async` | Async events, payloads, retries, signatures |
 | `webhook-sync` | Sync events, response format, performance |
 | `webhook-external` | External service webhooks, multi-tenant routing |
