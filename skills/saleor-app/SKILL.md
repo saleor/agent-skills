@@ -2,8 +2,8 @@
 name: saleor-app
 description: >
   Universal Saleor app development patterns. Covers the app protocol (manifest, registration,
-  webhooks, authentication), SDK abstractions, settings persistence, and Dashboard integration.
-  Framework-agnostic with Next.js examples.
+  webhooks, authentication), payment processing, SDK abstractions, settings persistence, and
+  Dashboard integration. Framework-agnostic with Next.js examples.
 license: MIT
 metadata:
   author: saleor
@@ -19,6 +19,7 @@ Framework-agnostic protocol documentation with Next.js examples using `@saleor/a
 
 - Defining an app manifest or registering webhooks
 - Handling async/sync webhook events from Saleor
+- Building payment apps with the Transaction API and provider webhooks
 - Authenticating requests (registration handshake, JWT, signature verification)
 - Storing app settings in Saleor metadata
 - Building Dashboard UI inside the iframe
@@ -32,10 +33,11 @@ Framework-agnostic protocol documentation with Next.js examples using `@saleor/a
 | -------- | --------------- | -------- | --------------- |
 | 1        | Protocol        | CRITICAL | `protocol-`     |
 | 2        | Permissions     | CRITICAL | `permissions-`  |
-| 3        | Webhooks        | HIGH     | `webhook-`      |
-| 4        | Data & Settings | HIGH     | `data-`         |
-| 5        | Dashboard UI    | MEDIUM   | `dashboard-`    |
-| 6        | Development     | MEDIUM   | `dev-`          |
+| 3        | Payment Apps    | CRITICAL | `payment-`      |
+| 4        | Webhooks        | HIGH     | `webhook-`      |
+| 5        | Data & Settings | HIGH     | `data-`         |
+| 6        | Dashboard UI    | MEDIUM   | `dashboard-`    |
+| 7        | Development     | MEDIUM   | `dev-`          |
 
 ## Quick Reference
 
@@ -48,21 +50,25 @@ Framework-agnostic protocol documentation with Next.js examples using `@saleor/a
 
 - `permissions-access-scopes` — Define per-feature permissions; guard user JWT on every API route; baseline + per-route meta; UI mirrors server
 
-### 3. Webhooks (HIGH)
+### 3. Payment Apps (CRITICAL)
+
+- `payment-app` — Financial truth, stable references, unknown outcomes, refunds, and reconciliation
+
+### 4. Webhooks (HIGH)
 
 - `webhook-async` — Async event handling, payload typing, retry policy, signature verification
 - `webhook-sync` — Sync event handling, response schemas, performance constraints
 - `webhook-external` — Receiving webhooks from external services, multi-tenant routing
 
-### 4. Data & Settings (HIGH)
+### 5. Data & Settings (HIGH)
 
 - `data-graphql` — GraphQL from apps: client setup, auth headers, codegen, app vs user tokens
 - `data-settings` — MetadataManager, EncryptedMetadataManager, domain-scoped persistence
 
-### 5. Dashboard UI (MEDIUM)
+### 6. Dashboard UI (MEDIUM)
 
 - `dashboard-appbridge` — AppBridge iframe protocol, actions, events, theme/locale sync
 
-### 6. Development (MEDIUM)
+### 7. Development (MEDIUM)
 
 - `dev-debug` — Common errors, webhook dry runs, tunnel setup, debugging checklist
